@@ -1,0 +1,108 @@
+/* src/components/Leaderboard.css */
+.current-user-card {
+  background-color: #2b2b2b;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.current-user-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ADFF2F;
+  margin-bottom: 15px;
+}
+
+.current-user-card h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.current-user-card p {
+  margin: 5px 0 0 0;
+  color: #aaa;
+}
+
+.other-members-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.leaderboard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  background-color: #1E1E1E;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.rank-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #aaa;
+  width: 40px;
+  text-align: center;
+}
+
+.member-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 15px;
+}
+
+.member-info {
+  flex-grow: 1;
+}
+.member-info .name {
+  font-weight: 600;
+}
+.member-info .goal {
+  display: block;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.progress-bar-container {
+  width: 100px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 4px;
+  margin: 0 15px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #ADFF2F;
+  border-radius: 4px;
+}
+
+.progress-percent {
+  font-weight: bold;
+  color: #ADFF2F;
+  width: 40px;
+}
+
+/* Special styles for top 3 */
+.list-item.rank-1 { background-color: #ffd700; color: #000; }
+.list-item.rank-2 { background-color: #c0c0c0; color: #000; }
+.list-item.rank-3 { background-color: #cd7f32; color: #fff; }
+
+/* Adjust text colors for top 3 so they are readable */
+.list-item.rank-1 .name, .list-item.rank-2 .name, .list-item.rank-3 .name { color: inherit; }
+.list-item.rank-1 .goal, .list-item.rank-2 .goal, .list-item.rank-3 .goal { color: rgba(0,0,0,0.7); }
+.list-item.rank-3 .goal { color: rgba(255,255,255,0.7); }
+.list-item.rank-1 .rank-number, .list-item.rank-2 .rank-number, .list-item.rank-3 .rank-number { color: inherit; }
+.list-item.rank-1 .progress-percent, .list-item.rank-2 .progress-percent, .list-item.rank-3 .progress-percent { color: inherit; }
+.list-item.rank-1 .progress-bar, .list-item.rank-2 .progress-bar, .list-item.rank-3 .progress-bar { background-color: #fff; }

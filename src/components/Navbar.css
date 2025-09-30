@@ -1,0 +1,66 @@
+/* src/components/Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  width: 90%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  position: relative; /* Set relative position as the default */
+}
+.navbar.solid {
+  background-color: #000000;
+}
+
+/* Style for the SEMI-TRANSPARENT "glass" navbar on other pages */
+.navbar.glass {
+  background-color: rgba(24, 24, 24, 0.5); /* Semi-transparent dark color */
+  backdrop-filter: blur(10px); /* This creates the frosted glass effect */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.navbar-logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #90EE90; /* Light green for hover */
+}
+
+.nav-button-signup {
+  background-color:#00ff00;
+  color: #000;
+  padding: 10px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button-signup:hover {
+  background-color: #fff;
+}

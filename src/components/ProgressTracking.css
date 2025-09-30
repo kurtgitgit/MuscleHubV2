@@ -1,0 +1,91 @@
+/* src/components/ProgressTracking.css */
+.progress-header {
+  margin-bottom: 40px;
+}
+.progress-header h1 {
+  font-size: 2rem;
+  max-width: 500px;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.progress-card {
+  background-color: #1E1E1E;
+  border-radius: 15px;
+  padding: 25px;
+}
+.progress-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.progress-card h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  color: #aaa;
+}
+
+.weight-section {
+  display: flex;
+  justify-content: space-between;
+}
+.weight-section p {
+  margin: 0;
+  color: #aaa;
+}
+.weight-section span {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.achievement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.achievement-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.trophy-icon {
+  color: #00ff00;
+}
+
+.stat-line {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.main-stat {
+  font-size: 3rem;
+  font-weight: 600;
+}
+.sub-stat {
+  color: #aaa;
+}
+.progress-bar-container {
+  flex-grow: 1;
+  height: 10px;
+  background-color: #333;
+  border-radius: 5px;
+}
+.progress-bar {
+  height: 100%;
+  background-color: #00ff00;
+  border-radius: 5px;
+}
+
+.target-text {
+  text-align: right;
+  color: #aaa;
+  margin-top: 10px;
+}
+.target-text strong {
+  color: #fff;
+}
