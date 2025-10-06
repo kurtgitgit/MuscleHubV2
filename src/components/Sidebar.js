@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import './Sidebar.css'; // Import the new CSS
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
+import '../styles/Sidebar.css';
 
 // Import Icons
 import { FaHome, FaTrophy, FaIdCard, FaChartBar, FaSignOutAlt } from 'react-icons/fa';
@@ -8,10 +8,16 @@ import { FaHome, FaTrophy, FaIdCard, FaChartBar, FaSignOutAlt } from 'react-icon
 const Sidebar = ({ currentUser }) => {
   const location = useLocation();
   const isProfileActive = location.pathname === '/profile';
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // TODO: Clear auth tokens/session if needed
+    navigate("/"); // ✅ Redirects back to LandingPage
+  };
 
   return (
     <aside className="sidebar">
-      {/* The entire profile card is now a link */}
+      {/* Profile Card */}
       <Link to="/profile" className={`profile-card-link ${isProfileActive ? 'active' : ''}`}>
         <div className="profile-card">
           <img src={currentUser.avatar} alt="User Avatar" />
@@ -22,27 +28,36 @@ const Sidebar = ({ currentUser }) => {
         </div>
       </Link>
 
+      {/* Navigation */}
       <nav>
         <ul className="nav-links">
-          <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : ""}>
+          <li>
+            <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : ""}>
               <FaHome className="nav-icon" /> Home
-          </NavLink></li>
-          <li><NavLink to="/leaderboard" className={({ isActive }) => isActive ? "active" : ""}>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/leaderboard" className={({ isActive }) => isActive ? "active" : ""}>
               <FaTrophy className="nav-icon" /> Leaderboard
-          </NavLink></li>
-          <li><NavLink to="/membership" className={({ isActive }) => isActive ? "active" : ""}>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/membership" className={({ isActive }) => isActive ? "active" : ""}>
               <FaIdCard className="nav-icon" /> Membership Plans
-          </NavLink></li>
-          <li><NavLink to="/progress" className={({ isActive }) => isActive ? "active" : ""}>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/progress" className={({ isActive }) => isActive ? "active" : ""}>
               <FaChartBar className="nav-icon" /> Progress Tracking
-          </NavLink></li>
+            </NavLink>
+          </li>
         </ul>
       </nav>
-      
-      {/* Logout Link */}
-      <div className="nav-links">
-        <li><a href="/login"><FaSignOutAlt className="nav-icon" /> Log Out</a></li>
-      </div>
+
+      {/* Logout Button */}
+      <button className="logout-btn" onClick={handleLogout}>
+        <FaSignOutAlt className="nav-icon" /> Log Out
+      </button>
     </aside>
   );
 };

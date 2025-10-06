@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from './Sidebar'; // 1. Import the new Sidebar component
-import './MemberDashboard.css';
+import '../styles/MemberDashboard.css';
+
 
 // 2. We no longer need NavLink or most icons here, they are in the Sidebar
 import { Line } from 'react-chartjs-2';

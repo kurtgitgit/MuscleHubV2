@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar'; // 1. Import the reusable Sidebar
-import './MemberDashboard.css'; // Reuse main layout
-import './Membership.css';     // New specific styles
+import '../styles/MemberDashboard.css';
+import '../styles/Membership.css';
 
 // 2. We only need the icons for the main content now
 import { FaInfoCircle, FaCheckCircle } from 'react-icons/fa';

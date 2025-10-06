@@ -1,9 +1,9 @@
 import React from 'react';
-import './LandingPage.css';
+import '../styles/LandingPage.css';
 import { Link } from 'react-router-dom';
 
 // Import assets
-import landingImg from '../assets/landingimg.png';
+import landingimg from '../assets/landingimg.png';
 import paymentsIcon from '../assets/payments.png';
 import trackingIcon from '../assets/tracking.png';
 import leaderboardIcon from '../assets/leaderboard.png';
@@ -14,7 +14,7 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section 
         className="hero-section"
-        style={{ backgroundImage: `url(${landingImg})` }} // ✅ Background image applied
+        style={{ backgroundImage: `url(${landingimg})` }} // ✅ Background image applied
       >
         <div className="hero-overlay"></div>
         <div className="hero-content">

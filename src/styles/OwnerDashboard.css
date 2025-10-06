@@ -1,0 +1,43 @@
+/* Note: .dashboard-container and .main-content styles are in MemberDashboard.css */
+
+.stats-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background-color: #1E1E1E;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.stat-card p {
+  margin: 0 0 10px 0;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.stat-card span {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #ADFF2F;
+}
+
+.report-widget {
+  background-color: #1E1E1E;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.report-widget h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+}
+
+.report-widget .subtitle {
+  color: #aaa;
+  margin-bottom: 20px;
+}

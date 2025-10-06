@@ -1,0 +1,16 @@
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.analytics-widget {
+    background-color: #1E1E1E;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.analytics-widget h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}

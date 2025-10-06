@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
-import './MemberDashboard.css'; // Keep this for the main layout
-import './Profile.css';       // Keep this for the profile-specific styles
-
-// Import only the icons needed for THIS page's content
+import '../styles/MemberDashboard.css';
+import '../styles/Profile.css';
 import { FaPencilAlt, FaCamera } from 'react-icons/fa';
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
+  const [isTwoFactorEnabled, setIsTwoFactorEnabled] = useState(false);
 
   const currentUser = {
     name: 'Josh Mojica',
     goal: 'Gaining Weight',
-    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto-format&fit-crop',
+    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto=format&fit=crop',
     email: 'example@gmail.com',
     phone: '0950 *** ****',
     dob: '01 / 01 / 1990',
+    emergencyContactName: 'Jane Doe',
+    emergencyContactPhone: '0917 *** ****',
   };
 
   const membership = {
@@ -26,19 +27,14 @@ const Profile = () => {
   };
   
   const attendance = {
-    days: [50, 80, 70, 95, 60, 30, 30], // Heights in % for the bars
+    days: [50, 80, 70, 95, 60, 30, 30],
     activeDays: 5,
     totalDays: 7,
   };
 
   return (
     <div className="dashboard-container">
-      {/* This is the correct way to include the sidebar */}
       <Sidebar currentUser={currentUser} />
-
-      {/* --- ALL THE DUPLICATED CODE HAS BEEN REMOVED FROM HERE --- */}
-
-      {/* Main Profile Content */}
       <main className="profile-main-content">
         <header className="profile-header">
           <div className="avatar-container">
@@ -47,9 +43,7 @@ const Profile = () => {
           </div>
           <h1>Your Account</h1>
         </header>
-
         <div className="profile-widgets-grid">
-          {/* Personal Details */}
           <div className="profile-widget">
             <div className="widget-header">
               <h2>Personal Details</h2>
@@ -64,8 +58,15 @@ const Profile = () => {
               <div className="input-group"><label>Date of Birth:</label><input type="text" defaultValue={currentUser.dob} readOnly={!isEditing} /></div>
             </form>
           </div>
-
-          {/* Membership Status */}
+          <div className="profile-widget">
+            <div className="widget-header">
+              <h2>Emergency Contact</h2>
+            </div>
+            <form className="details-form">
+              <div className="input-group"><label>Contact Person:</label><input type="text" defaultValue={currentUser.emergencyContactName} readOnly={!isEditing} /></div>
+              <div className="input-group"><label>Phone Number:</label><input type="text" defaultValue={currentUser.emergencyContactPhone} readOnly={!isEditing} /></div>
+            </form>
+          </div>
           <div className="profile-widget">
             <div className="widget-header"><h2>Membership Status</h2></div>
             <div className="membership-status-grid">
@@ -74,12 +75,30 @@ const Profile = () => {
               <div className="status-item"><p>Renewal Date:</p><span>{membership.renewalDate}</span></div>
             </div>
             <div className="membership-actions">
-              <button className="upgrade-button">Upgrade Membership</button>
-              <button className="cancel-button">Cancel Membership</button>
+              <button className="btn upgrade-button">Upgrade Membership</button>
+              <button className="btn cancel-button">Cancel Membership</button>
             </div>
           </div>
-
-          {/* Attendance History */}
+          <div className="profile-widget">
+            <div className="widget-header">
+              <h2>Security Settings</h2>
+            </div>
+            <div className="security-settings">
+              <div className="setting-item">
+                <span>Two-Factor Authentication</span>
+                <div 
+                  className={`toggle-switch ${isTwoFactorEnabled ? 'active' : ''}`}
+                  onClick={() => setIsTwoFactorEnabled(!isTwoFactorEnabled)}
+                >
+                  <div className="toggle-handle"></div>
+                </div>
+              </div>
+              <div className="setting-item">
+                <span>Password</span>
+                <button className="change-password-button">Change Password</button>
+              </div>
+            </div>
+          </div>
           <div className="profile-widget">
             <div className="widget-header"><h2>Attendance History</h2></div>
             <div className="attendance-history">
@@ -90,9 +109,9 @@ const Profile = () => {
                   <div key={index} className={`bar ${index >= attendance.activeDays ? 'inactive' : ''}`} style={{ height: `${height}%` }}></div>
                 ))}
               </div>
-               <div className="view-history-link">
+              <div className="view-history-link">
                 <button onClick={() => alert('Full history page coming soon!')}>View Full History</button>
-               </div>
+              </div>
             </div>
           </div>
         </div>

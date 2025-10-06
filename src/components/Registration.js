@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './AuthForm.css'; // We will update this shared CSS file
+import '../styles/AuthForm.css';
 import authLogo from '../assets/logo-auth.png'; // Make sure your logo is in src/assets/logo.png
 
 const Registration = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from './Sidebar'; // 1. Import the reusable Sidebar
-import './MemberDashboard.css'; // Reuse main layout styles
-import './ProgressTracking.css'; // Keep the styles for this page
+import '../styles/MemberDashboard.css';
+import '../styles/ProgressTracking.css';
 
 // 2. We only need the trophy icon for the main content
 import { FaTrophy } from 'react-icons/fa';

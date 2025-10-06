@@ -3,16 +3,16 @@ import MemberDashboard from './MemberDashboard';
 import OwnerDashboard from './OwnerDashboard';
 
 const Dashboard = () => {
-  // Get the user's role from where you stored it (e.g., localStorage)
+  // Check the user's role saved during login
   const userRole = localStorage.getItem('userRole');
 
-  // Check the role and render the appropriate dashboard
+  // If the role is 'owner', show the OwnerDashboard.
+  // Otherwise, show the MemberDashboard.
   if (userRole === 'owner') {
     return <OwnerDashboard />;
+  } else {
+    return <MemberDashboard />;
   }
-  
-  // Default to the MemberDashboard
-  return <MemberDashboard />;
 };
 
 export default Dashboard;

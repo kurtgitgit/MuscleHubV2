@@ -1,8 +1,7 @@
 import React from 'react';
 import Sidebar from './Sidebar'; // Import the reusable Sidebar
-import './MemberDashboard.css'; // Reuse the main layout styles
-import './Leaderboard.css';     // Keep the leaderboard-specific styles
-
+import '../styles/MemberDashboard.css';
+import '../styles/Leaderboard.css'; 
 const Leaderboard = () => {
   // Mock data for the current user and the leaderboard list
   const currentUser = {
