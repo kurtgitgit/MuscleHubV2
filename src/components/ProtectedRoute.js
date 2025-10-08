@@ -2,15 +2,15 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
-  // Check if the user is "logged in" by seeing if the role exists
-  const userRole = localStorage.getItem('userRole');
+  // 1. It looks for the 'token' we saved in localStorage after logging in.
+  const token = localStorage.getItem('token');
 
-  if (!userRole) {
-    // If no role is found, redirect them to the login page
+  // 2. If no token is found, it redirects the user back to the login page.
+  if (!token) {
     return <Navigate to="/login" />;
   }
 
-  // If a role exists, show the component they were trying to access
+  // 3. If a token IS found, it shows the protected page (the children).
   return children;
 };
 

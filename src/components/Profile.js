@@ -8,10 +8,11 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isTwoFactorEnabled, setIsTwoFactorEnabled] = useState(false);
 
+  // Using mock data for the frontend-only prototype
   const currentUser = {
     name: 'Josh Mojica',
     goal: 'Gaining Weight',
-    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto=format&fit=crop',
+    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto-format&fit=crop',
     email: 'example@gmail.com',
     phone: '0950 *** ****',
     dob: '01 / 01 / 1990',
@@ -35,6 +36,7 @@ const Profile = () => {
   return (
     <div className="dashboard-container">
       <Sidebar currentUser={currentUser} />
+      
       <main className="profile-main-content">
         <header className="profile-header">
           <div className="avatar-container">
@@ -43,13 +45,13 @@ const Profile = () => {
           </div>
           <h1>Your Account</h1>
         </header>
+
         <div className="profile-widgets-grid">
+          {/* Personal Details Widget */}
           <div className="profile-widget">
             <div className="widget-header">
               <h2>Personal Details</h2>
-              <div className="widget-edit-icon" onClick={() => setIsEditing(!isEditing)}>
-                <FaPencilAlt />
-              </div>
+              <div className="widget-edit-icon" onClick={() => setIsEditing(!isEditing)}><FaPencilAlt /></div>
             </div>
             <form className="details-form">
               <div className="input-group"><label>Full name:</label><input type="text" defaultValue={currentUser.name} readOnly={!isEditing} /></div>
@@ -58,15 +60,17 @@ const Profile = () => {
               <div className="input-group"><label>Date of Birth:</label><input type="text" defaultValue={currentUser.dob} readOnly={!isEditing} /></div>
             </form>
           </div>
+          
+          {/* Emergency Contact Widget */}
           <div className="profile-widget">
-            <div className="widget-header">
-              <h2>Emergency Contact</h2>
-            </div>
-            <form className="details-form">
-              <div className="input-group"><label>Contact Person:</label><input type="text" defaultValue={currentUser.emergencyContactName} readOnly={!isEditing} /></div>
-              <div className="input-group"><label>Phone Number:</label><input type="text" defaultValue={currentUser.emergencyContactPhone} readOnly={!isEditing} /></div>
-            </form>
+              <div className="widget-header"><h2>Emergency Contact</h2></div>
+              <form className="details-form">
+                  <div className="input-group"><label>Contact Person:</label><input type="text" defaultValue={currentUser.emergencyContactName} readOnly={!isEditing} /></div>
+                  <div className="input-group"><label>Phone Number:</label><input type="text" defaultValue={currentUser.emergencyContactPhone} readOnly={!isEditing} /></div>
+              </form>
           </div>
+
+          {/* Membership Status Widget */}
           <div className="profile-widget">
             <div className="widget-header"><h2>Membership Status</h2></div>
             <div className="membership-status-grid">
@@ -75,14 +79,14 @@ const Profile = () => {
               <div className="status-item"><p>Renewal Date:</p><span>{membership.renewalDate}</span></div>
             </div>
             <div className="membership-actions">
-              <button className="btn upgrade-button">Upgrade Membership</button>
-              <button className="btn cancel-button">Cancel Membership</button>
+              <button className="upgrade-button">Upgrade Membership</button>
+              <button className="cancel-button">Cancel Membership</button>
             </div>
           </div>
+
+          {/* Security Settings Widget */}
           <div className="profile-widget">
-            <div className="widget-header">
-              <h2>Security Settings</h2>
-            </div>
+            <div className="widget-header"><h2>Security Settings</h2></div>
             <div className="security-settings">
               <div className="setting-item">
                 <span>Two-Factor Authentication</span>
@@ -99,6 +103,8 @@ const Profile = () => {
               </div>
             </div>
           </div>
+
+          {/* Attendance History Widget */}
           <div className="profile-widget">
             <div className="widget-header"><h2>Attendance History</h2></div>
             <div className="attendance-history">
@@ -121,3 +127,4 @@ const Profile = () => {
 };
 
 export default Profile;
+

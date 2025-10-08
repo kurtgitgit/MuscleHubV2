@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/AuthForm.css';
-import authLogo from '../assets/logo-auth.png';
- // Make sure your logo is in src/assets/logo.png
+import logo from '../assets/logo-auth.png';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,11 +16,17 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate API call based on email
+    // Reverted to simple frontend-only logic
+    // It checks if the email contains "owner" to simulate roles
     let userRole = formData.email.includes('owner') ? 'owner' : 'member';
+    
+    // We save the simulated role to localStorage so the app knows who is logged in
     localStorage.setItem('userRole', userRole);
+    // We also save a dummy token so the ProtectedRoute works
+    localStorage.setItem('token', 'fake-jwt-token');
+    
+    // Redirect to the dashboard
     navigate('/dashboard');
-    console.log('Login data:', formData);
   };
 
   return (
@@ -30,7 +35,7 @@ const Login = () => {
         <Link to="/" className="back-arrow">‹</Link>
         
         <div className="auth-header">
-          <img src={authLogo} alt="Muscle Hub Logo" className="auth-logo" />
+          <img src={logo} alt="Muscle Hub Logo" className="auth-logo" />
           <h2>Welcome Back!</h2>
           <p>Ready for your next workout?</p>
         </div>
@@ -74,3 +79,4 @@ const Login = () => {
 };
 
 export default Login;
+

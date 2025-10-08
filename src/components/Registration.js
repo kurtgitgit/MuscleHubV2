@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/AuthForm.css';
-import authLogo from '../assets/logo-auth.png'; // Make sure your logo is in src/assets/logo.png
+import logo from '../assets/logo-auth.png';
 
 const Registration = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -30,8 +31,11 @@ const Registration = () => {
       alert("Passwords do not match!");
       return;
     }
+
+    // Simple frontend confirmation, no backend call
     console.log('Registration data:', formData);
     alert('Account created successfully! (Frontend only)');
+    navigate('/login'); // Redirect to login page after successful "registration"
   };
 
   return (
@@ -40,7 +44,7 @@ const Registration = () => {
         <Link to="/" className="back-arrow">‹</Link>
         
         <div className="auth-header">
-           <img src={authLogo} alt="Muscle Hub Logo" className="auth-logo" />
+          <img src={logo} alt="Muscle Hub Logo" className="auth-logo" />
           <h2>Join Muscle Hub Today</h2>
           <p>Track progress, manage memberships</p>
         </div>
@@ -118,3 +122,4 @@ const Registration = () => {
 };
 
 export default Registration;
+
