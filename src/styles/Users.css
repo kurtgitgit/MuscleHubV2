@@ -35,7 +35,7 @@
 
 /* This is the style for the new button */
 .add-user-button {
-  background-color: #ADFF2F;
+  background-color: #00ff00;
   color: #000;
   border: none;
   border-radius: 8px;
@@ -94,7 +94,7 @@
 }
 .status-pill.active {
   background-color: rgba(173, 255, 47, 0.2);
-  color: #ADFF2F;
+  color: #00ff00;
 }
 .status-pill.expired {
   background-color: rgba(255, 77, 77, 0.2);

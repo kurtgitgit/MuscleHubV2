@@ -7,13 +7,13 @@ import { FaPencilAlt, FaCamera } from 'react-icons/fa';
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isTwoFactorEnabled, setIsTwoFactorEnabled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Using mock data for the frontend-only prototype
   const currentUser = {
     name: 'Josh Mojica',
     goal: 'Gaining Weight',
     avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto-format&fit=crop',
-    email: 'example@gmail.com',
+    email: 'josh.mojica@example.com',
     phone: '0950 *** ****',
     dob: '01 / 01 / 1990',
     emergencyContactName: 'Jane Doe',
@@ -33,6 +33,30 @@ const Profile = () => {
     totalDays: 7,
   };
 
+  const PaymentModal = ({ membership, onClose }) => (
+    <div className="modal-overlay">
+        <div className="modal-content">
+            <button className="modal-close-button" onClick={onClose}>&times;</button>
+            <h2>Payment Method</h2>
+            <div className="payment-options">
+                <div className="payment-option selected">
+                    <input type="radio" id="gcash" name="payment" value="gcash" defaultChecked />
+                    <label htmlFor="gcash"><img src="https://via.placeholder.com/40x40/2E71B5/FFFFFF?text=G" alt="GCash" /><span>GCash</span></label>
+                </div>
+                <div className="payment-option">
+                    <input type="radio" id="maya" name="payment" value="maya" />
+                    <label htmlFor="maya"><img src="https://via.placeholder.com/40x40/00C883/FFFFFF?text=M" alt="Maya" /><span>Maya</span></label>
+                </div>
+            </div>
+            <div className="payment-summary">
+                <div className="summary-item"><span>Plan:</span><span>{membership.type}</span></div>
+                <div className="summary-item total"><span>Total:</span><span>₱ 800.00</span></div>
+            </div>
+            <button className="pay-now-button" onClick={() => { alert('Payment Successful!'); onClose(); }}>Pay Now</button>
+        </div>
+    </div>
+  );
+
   return (
     <div className="dashboard-container">
       <Sidebar currentUser={currentUser} />
@@ -46,6 +70,7 @@ const Profile = () => {
           <h1>Your Account</h1>
         </header>
 
+        {/* This is the container the CSS is targeting for the grid */}
         <div className="profile-widgets-grid">
           {/* Personal Details Widget */}
           <div className="profile-widget">
@@ -79,7 +104,7 @@ const Profile = () => {
               <div className="status-item"><p>Renewal Date:</p><span>{membership.renewalDate}</span></div>
             </div>
             <div className="membership-actions">
-              <button className="upgrade-button">Upgrade Membership</button>
+              <button className="upgrade-button" onClick={() => setIsModalOpen(true)}>Upgrade Membership</button>
               <button className="cancel-button">Cancel Membership</button>
             </div>
           </div>
@@ -122,6 +147,8 @@ const Profile = () => {
           </div>
         </div>
       </main>
+
+      {isModalOpen && <PaymentModal membership={membership} onClose={() => setIsModalOpen(false)} />}
     </div>
   );
 };

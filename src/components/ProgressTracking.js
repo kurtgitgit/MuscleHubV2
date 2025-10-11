@@ -1,55 +1,95 @@
-import React from 'react';
-import Sidebar from './Sidebar'; // 1. Import the reusable Sidebar
-import '../styles/MemberDashboard.css';
-import '../styles/ProgressTracking.css';
+import React, { useState } from 'react';
+import Sidebar from './Sidebar';
+import '../styles/MemberDashboard.css'; // We reuse the main layout styles
+import '../styles/ProgressTracking.css'; // New styles for this page
 
-// 2. We only need the trophy icon for the main content
+// Import Chart components and Icons
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { FaTrophy } from 'react-icons/fa';
 
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
 const ProgressTracking = () => {
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const [bmiResult, setBmiResult] = useState(null);
+
+  const calculateBmi = (e) => {
+    e.preventDefault();
+    if (height > 0 && weight > 0) {
+      const heightInMeters = height / 100;
+      const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+      setBmiResult(bmi);
+    }
+  };
+
   const currentUser = {
     name: 'Josh Mojica',
     goal: 'Gaining Weight',
-    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto=format&fit=crop',
+    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto-format&fit-crop',
   };
 
-  // Mock data for progress
   const progressData = {
-    currentWeight: 80,
-    goalWeight: 70,
     achievements: ['Lost 5kg milestone', 'Visited gym 30 times'],
-    weeklyHours: 6.3,
-    weeklyTargetHours: 6,
-    workoutFrequency: 5,
-    weeklyTargetFrequency: 2,
-    frequencyHours: 2,
+  };
+  
+  const bodyMeasurementsData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    datasets: [
+      {
+        label: 'Weight (kg)',
+        data: [80, 82, 81, 83, 84],
+        borderColor: '#ADFF2F',
+        tension: 0.4,
+      },
+      {
+        label: 'Body Fat %',
+        data: [22, 21, 20, 19.5, 19],
+        borderColor: '#8884d8',
+        tension: 0.4,
+      }
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: { legend: { position: 'top' } },
+    scales: { x: { ticks: { color: '#aaa' } }, y: { ticks: { color: '#aaa' } } },
   };
 
   return (
     <div className="dashboard-container">
-      {/* 3. The entire <aside> block is replaced with this component */}
       <Sidebar currentUser={currentUser} />
 
-      {/* Main Progress Tracking Content remains the same */}
       <main className="main-content">
         <header className="progress-header">
           <h1>Would you like to keep up on your Progress?</h1>
         </header>
         
         <div className="progress-grid">
-          {/* Progress & Goals */}
-          <div className="progress-card">
-            <h3>Progress & Goals</h3>
-            <div className="weight-section">
-              <div>
-                <p>Current Weight</p>
-                <span>{progressData.currentWeight} kg</span>
+          {/* BMI Calculator */}
+          <div className="progress-card bmi-calculator">
+            <h3>BMI Calculator</h3>
+            <form onSubmit={calculateBmi}>
+              <div className="bmi-inputs">
+                <div className="input-group">
+                  <label>Height (cm)</label>
+                  <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} placeholder="e.g., 175" />
+                </div>
+                <div className="input-group">
+                  <label>Weight (kg)</label>
+                  <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} placeholder="e.g., 70" />
+                </div>
               </div>
-              <div>
-                <p>Goal</p>
-                <span>{progressData.goalWeight} kg</span>
+              <button type="submit" className="calculate-btn">Calculate</button>
+            </form>
+            {bmiResult && (
+              <div className="bmi-result">
+                <p>Your BMI is</p>
+                <span>{bmiResult}</span>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Achievement */}
@@ -62,29 +102,10 @@ const ProgressTracking = () => {
             </ul>
           </div>
 
-          {/* Weekly Hours */}
+          {/* Body Measurements Graph */}
           <div className="progress-card full-width">
-            <h3>Weekly Hours</h3>
-            <div className="stat-line">
-              <span className="main-stat">{progressData.weeklyHours}</span>
-              <div className="progress-bar-container">
-                <div className="progress-bar" style={{ width: `${(progressData.weeklyHours / progressData.weeklyTargetHours) * 100}%` }}></div>
-              </div>
-            </div>
-            <p className="target-text">Target for week: <strong>{progressData.weeklyTargetHours} hours</strong></p>
-          </div>
-
-          {/* Workout Frequency */}
-          <div className="progress-card full-width">
-            <h3>Workout Frequency</h3>
-            <div className="stat-line">
-              <span className="main-stat">{progressData.workoutFrequency}</span>
-              <p className="sub-stat">Times this week</p>
-              <div className="progress-bar-container">
-                <div className="progress-bar" style={{ width: `${(progressData.frequencyHours / progressData.weeklyTargetFrequency) * 100}%` }}></div>
-              </div>
-            </div>
-            <p className="target-text">Weekly target: {progressData.weeklyTargetFrequency}, <strong>{progressData.frequencyHours}x hours</strong></p>
+            <h3>Body Measurements</h3>
+            <Line options={chartOptions} data={bodyMeasurementsData} />
           </div>
         </div>
       </main>
@@ -93,3 +114,4 @@ const ProgressTracking = () => {
 };
 
 export default ProgressTracking;
+

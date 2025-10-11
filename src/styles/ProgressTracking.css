@@ -1,10 +1,10 @@
-/* src/components/ProgressTracking.css */
 .progress-header {
   margin-bottom: 40px;
 }
 .progress-header h1 {
   font-size: 2rem;
   max-width: 500px;
+  color: #fff;
 }
 
 .progress-grid {
@@ -19,7 +19,7 @@
   padding: 25px;
 }
 .progress-card.full-width {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* Makes the card span both columns */
 }
 
 .progress-card h3 {
@@ -27,21 +27,67 @@
   margin-bottom: 25px;
   font-size: 1.1rem;
   color: #aaa;
+  font-weight: 500;
 }
 
-.weight-section {
+/* --- ACCURATE BMI Calculator Styles --- */
+.bmi-calculator form {
   display: flex;
-  justify-content: space-between;
-}
-.weight-section p {
-  margin: 0;
-  color: #aaa;
-}
-.weight-section span {
-  font-size: 2rem;
-  font-weight: 600;
+  flex-direction: column;
 }
 
+/* Inputs are now stacked */
+.bmi-inputs .input-group {
+  margin-bottom: 15px;
+}
+.bmi-inputs label {
+  display: block;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+.bmi-inputs input {
+  width: 100%;
+  padding: 12px;
+  background-color: #333;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: #fff;
+  box-sizing: border-box;
+}
+.calculate-btn {
+  background-color: #00ff00;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px; /* Space above button */
+}
+.calculate-btn:hover {
+    background-color: #00ff00;
+}
+.bmi-result {
+  margin-top: 25px;
+  text-align: center;
+  background-color: transparent;
+  padding: 0;
+}
+.bmi-result p {
+  margin: 0 0 5px 0;
+  color: #aaa;
+  font-size: 1rem;
+}
+.bmi-result span {
+  font-size: 3.5rem; /* Larger font size for the result */
+  font-weight: 700;
+  color: #00ff00;
+}
+
+
+/* --- Achievement Styles --- */
 .achievement-list {
   list-style: none;
   padding: 0;
@@ -50,42 +96,16 @@
 .achievement-list li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.achievement-list li:last-child {
+  margin-bottom: 0;
 }
 .trophy-icon {
   color: #00ff00;
+  font-size: 1.2rem;
 }
 
-.stat-line {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.main-stat {
-  font-size: 3rem;
-  font-weight: 600;
-}
-.sub-stat {
-  color: #aaa;
-}
-.progress-bar-container {
-  flex-grow: 1;
-  height: 10px;
-  background-color: #333;
-  border-radius: 5px;
-}
-.progress-bar {
-  height: 100%;
-  background-color: #00ff00;
-  border-radius: 5px;
-}
-
-.target-text {
-  text-align: right;
-  color: #aaa;
-  margin-top: 10px;
-}
-.target-text strong {
-  color: #fff;
-}

@@ -23,7 +23,7 @@ const Login = () => {
     // We save the simulated role to localStorage so the app knows who is logged in
     localStorage.setItem('userRole', userRole);
     // We also save a dummy token so the ProtectedRoute works
-    localStorage.setItem('token', 'fake-jwt-token');
+    localStorage.setItem('token', 'fake-jwt-token-for-prototype');
     
     // Redirect to the dashboard
     navigate('/dashboard');
@@ -48,7 +48,7 @@ const Login = () => {
               id="email"
               name="email"
               className="auth-input"
-              placeholder="example@gmail.com"
+              placeholder="owner@email.com"
               onChange={handleChange}
               required
             />

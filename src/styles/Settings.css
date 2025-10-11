@@ -37,7 +37,7 @@
 }
 
 .save-button {
-    background-color: #ADFF2F;
+    background-color: #00ff00;
     color: #000;
     border: none;
     padding: 14px 25px;
@@ -84,7 +84,7 @@
 }
 
 .toggle-switch.active {
-  background-color: #ADFF2F;
+  background-color: #00ff00;
 }
 
 .toggle-handle {
