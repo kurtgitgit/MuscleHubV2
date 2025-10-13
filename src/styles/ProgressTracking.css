@@ -2,110 +2,143 @@
   margin-bottom: 40px;
 }
 .progress-header h1 {
-  font-size: 2rem;
-  max-width: 500px;
-  color: #fff;
+  font-size: 2.5rem;
+  margin: 0;
+}
+.progress-header p {
+  color: #aaa;
+  margin-top: 5px;
+}
+.gradient-text {
+  background: -webkit-linear-gradient(#ADFF2F, #90EE90);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+/* --- Main Layout --- */
 .progress-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr; /* The main grid is now a single column */
+  gap: 30px; /* This creates space between the top row and the bottom graph */
+}
+
+/* NEW: A grid for the top two cards */
+.top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px;
+    align-items: start;
 }
 
 .progress-card {
   background-color: #1E1E1E;
   border-radius: 15px;
-  padding: 25px;
+  padding: 30px;
 }
-.progress-card.full-width {
-  grid-column: 1 / -1; /* Makes the card span both columns */
-}
-
 .progress-card h3 {
   margin-top: 0;
   margin-bottom: 25px;
-  font-size: 1.1rem;
-  color: #aaa;
-  font-weight: 500;
+  font-size: 1.3rem;
+  color: #fff;
 }
 
-/* --- ACCURATE BMI Calculator Styles --- */
-.bmi-calculator form {
+/* --- BMI Calculator Styles --- */
+.form-row {
   display: flex;
-  flex-direction: column;
-}
-
-/* Inputs are now stacked */
-.bmi-inputs .input-group {
+  gap: 20px;
   margin-bottom: 15px;
 }
-.bmi-inputs label {
+.input-group {
+  margin-bottom: 15px;
+  flex: 1;
+}
+.bmi-calculator label {
   display: block;
   font-size: 0.9rem;
   color: #aaa;
   margin-bottom: 8px;
 }
-.bmi-inputs input {
+.bmi-calculator input,
+.bmi-calculator select {
   width: 100%;
   padding: 12px;
   background-color: #333;
-  border: 1px solid #444;
+  border: 1px solid #555;
   border-radius: 8px;
   color: #fff;
   box-sizing: border-box;
 }
-.calculate-btn {
-  background-color: #00ff00;
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  padding: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px; /* Space above button */
-}
-.calculate-btn:hover {
-    background-color: #00ff00;
-}
 .bmi-result {
-  margin-top: 25px;
+  margin: 20px 0;
   text-align: center;
-  background-color: transparent;
-  padding: 0;
 }
 .bmi-result p {
   margin: 0 0 5px 0;
   color: #aaa;
-  font-size: 1rem;
 }
-.bmi-result span {
-  font-size: 3.5rem; /* Larger font size for the result */
+.bmi-value {
+  font-size: 3rem;
   font-weight: 700;
-  color: #00ff00;
+  margin-right: 10px;
 }
-
-
-/* --- Achievement Styles --- */
-.achievement-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.achievement-list li {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+.bmi-category {
   font-size: 1rem;
   font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 5px;
 }
-.achievement-list li:last-child {
-  margin-bottom: 0;
+/* BMI Category Colors */
+.overweight { color: #FFA500; background-color: rgba(255, 165, 0, 0.1); }
+.underweight { color: #FFFF00; background-color: rgba(255, 255, 0, 0.1); }
+.normal { color: #ADFF2F; background-color: rgba(173, 255, 47, 0.1); }
+.obese { color: #FF4500; background-color: rgba(255, 69, 0, 0.1); }
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
 }
-.trophy-icon {
-  color: #00ff00;
-  font-size: 1.2rem;
+.clear-btn, .calculate-btn {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+.clear-btn {
+  background-color: #333;
+  color: #fff;
+}
+.calculate-btn {
+  background-color: #ADFF2F;
+  color: #000;
 }
 
+/* --- BMI Allocator Table --- */
+.bmi-allocator {
+    height: 86%; /* Make the card match the height of the calculator */
+}
+.bmi-allocator table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.bmi-allocator th, .bmi-allocator td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+.bmi-allocator th {
+  color: #aaa;
+  font-weight: 500;
+}
+.bmi-allocator td {
+  font-weight: 500;
+}
+.bmi-allocator tr:last-child td {
+  border-bottom: none;
+}
+.status-underweight { color: #FFFF00; }
+.status-normal { color: #ADFF2F; }
+.status-overweight { color: #FFA500; }
+.status-obese { color: #FF4500; }

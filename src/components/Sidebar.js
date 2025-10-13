@@ -54,10 +54,11 @@ const Sidebar = ({ currentUser }) => {
         </ul>
       </nav>
 
-      {/* Logout Button */}
-      <button className="logout-btn" onClick={handleLogout}>
-        <FaSignOutAlt className="nav-icon" /> Log Out
-      </button>
+      <div className="sidebar-logout">
+        <button onClick={handleLogout} className="logout-button">
+          <FaSignOutAlt /> Log Out
+        </button>
+      </div>
     </aside>
   );
 };

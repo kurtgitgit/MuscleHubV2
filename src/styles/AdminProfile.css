@@ -1,0 +1,136 @@
+/* Styles for the Admin Profile Page */
+
+.admin-profile-header {
+    margin-bottom: 40px;
+}
+
+.admin-profile-header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.admin-profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.settings-card {
+    background-color: #1E1E1E;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.settings-card.full-width {
+    grid-column: 1 / -1; /* Makes this card span both columns */
+}
+
+.settings-card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    color: #fff;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+/* Form Styles */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.input-group input:read-only {
+    background-color: #2a2a2a;
+    border-color: transparent;
+}
+
+/* Security Section Styles */
+.security-setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+}
+
+.security-setting:last-child {
+    border-bottom: none;
+}
+
+.security-setting span {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.setting-button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Toggle Switch for 2FA */
+.toggle-switch {
+  width: 50px;
+  height: 28px;
+  background-color: #555;
+  border-radius: 14px;
+  padding: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch.active {
+  background-color: #ADFF2F;
+}
+
+.toggle-handle {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch.active .toggle-handle {
+  transform: translateX(22px);
+}
+
+/* Update Profile Button */
+.update-profile-action {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.update-profile-button {
+    background-color: #ADFF2F;
+    color: #000;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}

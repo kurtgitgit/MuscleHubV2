@@ -15,8 +15,9 @@ import Membership from './components/Membership';
 import Profile from './components/Profile';
 import ProgressTracking from './components/ProgressTracking';
 import Registration from './components/Registration';
-import Settings from './components/Settings';
+
 import Users from './components/Users';
+import AdminProfile from './components/AdminProfile';
 
 function App() {
   return (
@@ -38,7 +39,8 @@ function App() {
           {/* Admin-Specific Routes */}
           <Route path="/users" element={<ProtectedRoute><Users /></ProtectedRoute>} />
           <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
-          <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+          
+          <Route path="/admin-profile" element={<ProtectedRoute><AdminProfile /></ProtectedRoute>} />
         </Routes>
       </Layout>
     </Router>

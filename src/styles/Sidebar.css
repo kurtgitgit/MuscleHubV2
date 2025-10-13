@@ -1,104 +1,101 @@
 /* src/components/Sidebar.css */
+
+/* Main sidebar container */
 .sidebar {
-  width: 260px;
+  min-width: 280px;
   background-color: #1E1E1E;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-}
-.logout-btn {
-  margin-top: auto;
-  background-color: #ff4d4d;
-  color: #fff;
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+  padding: 20px;
+  height: 100vh;
+  display: flex; /* 1. Use Flexbox for the layout */
+  flex-direction: column; /* 2. Stack children vertically */
+  justify-content: space-between; /* 3. Push the top and bottom divs apart */
+  box-sizing: border-box;
 }
 
-.logout-btn:hover {
-  background-color: #ff1a1a;
-}
-
-
-/* --- UPDATE: Make the card a clickable link --- */
+/* Profile Card Link */
 .profile-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
-  margin-bottom: 40px;
-  border-radius: 12px;
-  padding: 10px;
-  transition: background-color 0.3s ease;
+  margin-bottom: 30px;
 }
-
-/* --- ADD THIS: Style for when the profile link is active --- */
-.profile-card-link.active {
-  background-color: #333;
-}
-
 .profile-card {
   display: flex;
   align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
 }
-
-.profile-card img {
+.profile-card-link.active .profile-card,
+.profile-card-link:hover .profile-card {
+  background-color: #333;
+}
+.profile-avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-right: 15px;
   object-fit: cover;
 }
-
-.profile-info h3 {
+.profile-info h4 {
   margin: 0;
   font-size: 1.1rem;
-  font-weight: 600;
 }
-
 .profile-info p {
   margin: 0;
   color: #aaa;
   font-size: 0.9rem;
 }
+.admin-tag {
+    color: #ADFF2F !important;
+    font-weight: bold;
+}
 
-.nav-links {
+/* Main Navigation Links */
+.sidebar-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  flex-grow: 1; /* Pushes logout to the bottom */
 }
-
-.nav-links li a {
+.sidebar-nav li a {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 15px;
-  border-radius: 8px;
-  text-decoration: none;
+  padding: 15px 20px;
   color: #aaa;
+  text-decoration: none;
+  border-radius: 10px;
   font-weight: 500;
-  margin-bottom: 10px;
-  transition: background-color 0.3s, color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
 }
-
-.nav-links li a:hover {
+.sidebar-nav li a:hover {
   background-color: #333;
   color: #fff;
 }
-
-.nav-links li a.active {
-  background-color: #00ff00;
+.sidebar-nav li a.active {
+  background-color: #ADFF2F;
   color: #000;
 }
 
-.nav-links li a .nav-icon {
-  font-size: 1.2rem;
+/* Logout Button Styling */
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  background-color: #ff4d4d; /* Red background */
+  color: #fff; /* White text */
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* Remove underline from 'a' tag */
+  box-sizing: border-box; /* Ensure padding is included correctly */
+}
+
+.logout-button:hover {
+  background-color: #e60000; /* Darker red on hover */
 }

@@ -4,7 +4,7 @@ import '../styles/MemberDashboard.css'; // Main layout styles
 import '../styles/Users.css';           // Specific styles for this page
 
 // Import Icons
-import { FaSearch, FaPlus } from 'react-icons/fa';
+import { FaSearch} from 'react-icons/fa';
 
 const Users = () => {
   const adminUser = {
@@ -31,10 +31,8 @@ const Users = () => {
               <FaSearch className="search-icon" />
               <input type="text" placeholder="Search for a user..." />
             </div>
-            {/* --- ADD THIS BUTTON --- */}
-            <button className="add-user-button">
-              <FaPlus /> Add New User
-            </button>
+            
+            
           </div>
         </header>
 
