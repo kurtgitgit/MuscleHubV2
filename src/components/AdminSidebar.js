@@ -3,7 +3,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import '../styles/Sidebar.css'; // We will update this shared CSS file
 
 // Import Icons
-import { FaHome, FaUsers, FaChartLine,  FaSignOutAlt } from 'react-icons/fa';
+import { FaHome, FaUsers, FaChartLine,  FaIdCard, FaSignOutAlt } from 'react-icons/fa';
 
 const AdminSidebar = ({ currentUser }) => {
   const location = useLocation();
@@ -36,6 +36,7 @@ const AdminSidebar = ({ currentUser }) => {
             <li><NavLink to="/dashboard"><FaHome /> Home</NavLink></li>
             <li><NavLink to="/users"><FaUsers /> Users</NavLink></li>
             <li><NavLink to="/analytics"><FaChartLine /> Analytics</NavLink></li>
+            <li><NavLink to="/admin-plans"><FaIdCard /> Plans</NavLink></li>
            
           </ul>
         </nav>

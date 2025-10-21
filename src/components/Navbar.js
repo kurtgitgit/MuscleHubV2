@@ -14,10 +14,10 @@ const Navbar = ({ isHomePage }) => {
         <span>MUSCLE HUB</span>
       </Link>
       <ul className="nav-menu">
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/features">Features</Link></li>
-        <li><Link to="/plans">Plans</Link></li>
-        <li><Link to="/contacts">Contacts</Link></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#contacts">Contacts</a></li>
       </ul>
       <Link to="/register" className="nav-button-signup">Sign Up</Link>
     </nav>

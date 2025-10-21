@@ -3,15 +3,16 @@ import MemberDashboard from './MemberDashboard';
 import OwnerDashboard from './OwnerDashboard';
 
 const Dashboard = () => {
-  // 1. After the ProtectedRoute lets us in, this component checks the 'userRole'.
+  // Check the user's role saved during login
   const userRole = localStorage.getItem('userRole');
 
-  // 2. If the role is 'owner', it shows the OwnerDashboard.
-  if (userRole === 'owner') {
+  // --- UPDATE THIS LOGIC ---
+  // If the role is 'owner' OR 'staff', show the OwnerDashboard.
+  if (userRole === 'owner' || userRole === 'staff') {
     return <OwnerDashboard />;
   } 
   
-  // 3. For any other role (like 'member'), it shows the MemberDashboard.
+  // Otherwise, default to the MemberDashboard.
   return <MemberDashboard />;
 };
 

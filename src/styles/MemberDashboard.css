@@ -147,3 +147,44 @@
   color: #aaa;
   font-size: 0.9rem;
 }
+.dashboard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.header-actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+
+.notification-bell {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+.notification-bell:hover {
+  background-color: #333;
+  color: #00ff00;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff4d4d;
+  border-radius: 50%;
+  border: 2px solid #1E1E1E;
+}

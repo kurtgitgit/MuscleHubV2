@@ -31,7 +31,7 @@ const LandingPage = () => {
       </section>
 
       {/* Why Muscle Hub Section */}
-      <section className="why-us-section">
+      <section id="about" className="why-us-section">
         <h2>Why Muscle Hub?</h2>
         <p className="section-subtitle">
           Muscle Hub is a web-based fitness management platform built to simplify your gym experience. 
@@ -46,7 +46,7 @@ const LandingPage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="features-section">
+      <section id="features" className="features-section">
         <h2>What You'll Get with <span className="highlight-green">Muscle Hub</span></h2>
         <div className="features-grid">
           <div className="feature-card">
@@ -74,7 +74,7 @@ const LandingPage = () => {
       </section>
 
       {/* Membership Tier Section */}
-      <section className="tier-section"> 
+      <section id="plans" className="tier-section">
         <h2>Choose Your MuscleHub Tier</h2>
         <div className="tiers-grid">
           <div className="tier-card">
@@ -135,7 +135,7 @@ const LandingPage = () => {
       </section>
 
       {/* Footer Section */}
-      <footer className="footer">
+      <footer id="contacts" className="footer">
         <div className="footer-content">
           <div className="footer-brand">
             <h3>MuscleHub</h3>

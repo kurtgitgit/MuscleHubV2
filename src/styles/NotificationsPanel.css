@@ -1,0 +1,54 @@
+/* DEDICATED CSS FOR THE NOTIFICATIONS PANEL */
+.notifications-panel {
+  position: absolute;
+  top: calc(100% + 10px); /* Position below the bell with a small gap */
+  right: 0;
+  width: 380px;
+  background-color: #1E1E1E;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.7);
+  z-index: 1001;
+  border: 1px solid #333;
+}
+.notifications-header {
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+}
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.notification-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border-bottom: 1px solid #333;
+}
+.notification-item:last-child {
+  border-bottom: none;
+}
+.notification-icon {
+  font-size: 1.2rem;
+  color: #ADFF2F;
+  margin-top: 3px;
+}
+.notification-content p {
+  margin: 0 0 5px 0;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #fff;
+}
+.notification-content span {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+.no-notifications {
+    text-align: center;
+    padding: 30px 15px;
+    color: #aaa;
+}

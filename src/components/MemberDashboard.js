@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar'; // 1. Import the new Sidebar component
 import '../styles/MemberDashboard.css';
-
+import NotificationsPanel from './NotificationsPanel';
 
 // 2. We no longer need NavLink or most icons here, they are in the Sidebar
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-
+import { FaBell, FaTrophy, FaCheckCircle } from 'react-icons/fa';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
+
+
 const MemberDashboard = () => {
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const user = {
     name: 'Josh Mojica',
     goal: 'Gaining Weight',
     avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto-format&fit=crop',
   };
+  const memberNotifications = [ { icon: <FaTrophy />, message: 'You reached a new milestone: 5kg lost!', time: '2 hours ago' }, { icon: <FaCheckCircle />, message: 'Your membership renewal is due next week.', time: '1 day ago' }];
 
   const champions = [
     { name: 'Alex Johnson Lee', goal: 'Losing Weight', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop' },
@@ -52,10 +56,21 @@ const MemberDashboard = () => {
 
       {/* Main Content remains the same */}
       <main className="main-content">
+        <div className="dashboard-top"></div>
         <header className="welcome-header">
           <h1>Welcome back, <span>{user.name.split(' ')[0]}!</span></h1>
           <p>This is your personalized dashboard where you can track your BMI Progress, Monitor your Health Achievements, and see how you rank on the leaderboard alongside fellow members.</p>
-        </header>
+          </header>
+                 {/* ADD THIS WRAPPER AND BUTTON */}
+                    <div className="header-actions">
+                        <button className="notification-bell" onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}>
+                            <FaBell />
+                            <div className="notification-dot"></div>
+                        </button>
+                        {isNotificationsOpen && 
+                        <NotificationsPanel notifications={memberNotifications} />}
+                    </div>
+              
         <div className="widgets-grid">
           <div className="widget">
             <h2>BMI Progress Overview</h2>

@@ -8,6 +8,8 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isTwoFactorEnabled, setIsTwoFactorEnabled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [emailNotifications, setEmailNotifications] = useState(true);
+  const [pushNotifications, setPushNotifications] = useState(false);
 
   const currentUser = {
     name: 'Josh Mojica',
@@ -94,6 +96,7 @@ const Profile = () => {
                   <div className="input-group"><label>Phone Number:</label><input type="text" defaultValue={currentUser.emergencyContactPhone} readOnly={!isEditing} /></div>
               </form>
           </div>
+          
 
           {/* Membership Status Widget */}
           <div className="profile-widget">
@@ -128,6 +131,22 @@ const Profile = () => {
               </div>
             </div>
           </div>
+          {/* notification */}
+          <div className="profile-card">
+                    <h2>Notification Settings</h2>
+                    <div className="setting-row">
+                        <span>Email Notifications</span>
+                        <div className={`toggle-switch ${emailNotifications ? 'active' : ''}`} onClick={() => setEmailNotifications(!emailNotifications)}>
+                            <div className="toggle-handle"></div>
+                        </div>
+                    </div>
+                    <div className="setting-row">
+                        <span>Push Notifications</span>
+                         <div className={`toggle-switch ${pushNotifications ? 'active' : ''}`} onClick={() => setPushNotifications(!pushNotifications)}>
+                            <div className="toggle-handle"></div>
+                        </div>
+                    </div>
+                </div>
 
           {/* Attendance History Widget */}
           <div className="profile-widget">
@@ -143,6 +162,7 @@ const Profile = () => {
               <div className="view-history-link">
                 <button onClick={() => alert('Full history page coming soon!')}>View Full History</button>
               </div>
+              
             </div>
           </div>
         </div>

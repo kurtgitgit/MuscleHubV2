@@ -315,4 +315,29 @@
   cursor: pointer;
   font-size: 1rem;
 }
+/* ADD THIS TO THE END OF Profile.css AND AdminProfile.css */
+
+/* Toggle Switch Styles */
+.toggle-switch {
+  width: 50px;
+  height: 28px;
+  background-color: #555;
+  border-radius: 14px;
+  padding: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.toggle-switch.active {
+  background-color: #ADFF2F;
+}
+.toggle-handle {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.toggle-switch.active .toggle-handle {
+  transform: translateX(22px);
+}
 

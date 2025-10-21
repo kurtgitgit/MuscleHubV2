@@ -1,20 +1,22 @@
-import React from 'react'; // Removed useState and useEffect
+import React, { useState } from 'react'; // Removed useState and useEffect
 import AdminSidebar from './AdminSidebar';
 import '../styles/OwnerDashboard.css';
+import NotificationsPanel from './NotificationsPanel';
 
 // Import Chart components
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-
+import { FaBell, FaUserPlus, FaDollarSign } from 'react-icons/fa';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const OwnerDashboard = () => {
-  // Removed the unused useState calls for stats and error
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 
   const ownerUser = {
     name: 'Josh Mojica',
     avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto-format&fit=crop',
   };
+  const ownerNotifications = [ { icon: <FaUserPlus />, message: 'New member registered: Maria Clara', time: '15 minutes ago' }, { icon: <FaDollarSign />, message: 'A membership payment of ₱1,249 was received.', time: '1 hour ago' }];
 
   const revenueData = {
     labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
@@ -45,6 +47,13 @@ const OwnerDashboard = () => {
         <header className="welcome-header">
           <h1>Hello, <span>{ownerUser.name.split(' ')[0]}!!</span></h1>
           <p>this is what's happening in your gym this month.</p>
+          <div className="header-actions">
+                        <button className="notification-bell" onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}>
+                            <FaBell />
+                            <div className="notification-dot"></div>
+                        </button>
+                        {isNotificationsOpen && <NotificationsPanel notifications={ownerNotifications} />}
+                    </div>
         </header>
 
         <div className="stats-cards-grid">

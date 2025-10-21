@@ -18,6 +18,7 @@ import Registration from './components/Registration';
 
 import Users from './components/Users';
 import AdminProfile from './components/AdminProfile';
+import AdminPlans from './components/AdminPlans';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           {/* Admin-Specific Routes */}
           <Route path="/users" element={<ProtectedRoute><Users /></ProtectedRoute>} />
           <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+          <Route path="/admin-plans" element={<ProtectedRoute><AdminPlans /></ProtectedRoute>} />
           
           <Route path="/admin-profile" element={<ProtectedRoute><AdminProfile /></ProtectedRoute>} />
         </Routes>

@@ -6,6 +6,8 @@ import '../styles/AdminProfile.css';       // New styles specific to this page
 const AdminProfile = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [isTwoFactorEnabled, setIsTwoFactorEnabled] = useState(false);
+    const [emailNotifications, setEmailNotifications] = useState(true);
+    const [dailyReports, setDailyReports] = useState(false);
 
     // Mock data for the admin user
     const adminUser = {
@@ -67,6 +69,22 @@ const AdminProfile = () => {
                             </div>
                         </div>
                     </div>
+                    {/* notification */}
+                    <div className="settings-card">
+                    <h2>Notification Settings</h2>
+                    <div className="security-setting">
+                        <span>Email Notifications</span>
+                        <div className={`toggle-switch ${emailNotifications ? 'active' : ''}`} onClick={() => setEmailNotifications(!emailNotifications)}>
+                            <div className="toggle-handle"></div>
+                        </div>
+                    </div>
+                    <div className="security-setting">
+                        <span>Daily Sales Report</span>
+                        <div className={`toggle-switch ${dailyReports ? 'active' : ''}`} onClick={() => setDailyReports(!dailyReports)}>
+                            <div className="toggle-handle"></div>
+                        </div>
+                    </div>
+                </div>
 
                     {/* Gym Details Card */}
                     <div className="settings-card full-width">
